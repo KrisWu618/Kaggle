@@ -2,6 +2,12 @@ __author__ = 'Miroslaw Horbal'
 __email__ = 'miroslaw@gmail.com'
 __date__ = '14-06-2013'
 
+#
+# 1. Transform the data to higher degree features by considering all pairs and triples of the original data ignoring 'ROLE_CODE'
+# 2. Perform a One Hot Encoding on each individual column, but maintain the original transformed feature column that was associated with the encoding
+# 3. Perform greedy forward selection on the encoded data by training the model on ever increasing subsets of the original transformed columns so that I am selecting for groups of encoded binary features, not the individual binary feature bits
+# 4. Use the selected features to perform hyperparmeter fitting
+# 5. Train the full model and predict
 from numpy import array, hstack
 from sklearn import metrics, cross_validation, linear_model
 from scipy import sparse
